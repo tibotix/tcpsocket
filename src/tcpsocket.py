@@ -10,7 +10,7 @@ import random
 
 # reset RST: iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP
 # restore RST: iptables -D OUTPUT -p tcp --tcp-flags RST RST -j DROP
-
+# WSL its iptables-legacy
 
 class Callback(enum.IntEnum):
     SEND_ACK = 0
