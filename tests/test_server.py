@@ -18,6 +18,6 @@ class Handler(BaseRequestHandler):
 
 
 if __name__ == "__main__":
-    with Server(("10.0.2.15", 1024), Handler) as server:
+    with Server(("0.0.0.0", 1024), Handler) as server:
         print("Started")
         server.serve_forever()

@@ -96,12 +96,15 @@ class TCPSocket:
         self._mainloop_thread = threading.Thread(name="Mainloop", target=self._mainloop)
         self._mainloop_thread.start()
 
+    def bind(self, info):
+        # self.
+        pass
+
     def connect(self):
         self.seq = random.randrange(0, (2 ** 32) - 1)
 
         syn = self.ip / TCP(sport=self.sport, dport=self.dport, seq=self.seq, flags="S")
-        syn.show()
-        syn_ack = sr1(syn, timeout=self._timeout, verbose=self.verbose, iface="enp0s3")
+        syn_ack = sr1(syn, timeout=self._timeout, verbose=self.verbose)
         self.seq += 1
 
         assert syn_ack.haslayer(TCP), "TCP layer missing"
